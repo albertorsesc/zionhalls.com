@@ -40,9 +40,8 @@ class DeploymentCommand extends Command
         }
 
         // Composer
-        $this->info('Composer...');
-
         if (! app()->isProduction()) {
+            $this->info('Composer...');
             exec('composer install', $output);
             exec('composer update', $output);
             exec('composer dump-autoload', $output);
