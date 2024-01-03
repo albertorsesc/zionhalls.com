@@ -1,5 +1,7 @@
 ## Zion Halls
 
+![Zion Halls](/public/img/docs/demo.png)
+
 **Zion Halls** is an app with the purpose of providing a place to learn from world influencers that have the mission to 
 help escape the matrix and live a life of freedom and abundance.
 
