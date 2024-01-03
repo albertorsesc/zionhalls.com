@@ -15,7 +15,7 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="/zion-halls" class="text-sm font-semibold leading-6 text-white">
+            <a href="/zion-halls" class="text-sm font-semibold leading-6 text-white hidden">
                 {{ __('welcome.header.enter') }}
             </a>
             <a href="#features" class="text-sm font-semibold leading-6 text-white">

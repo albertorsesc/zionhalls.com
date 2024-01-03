@@ -15,11 +15,11 @@
 </head>
 <body class="font-sans antialiased">
 
-<div class="bg-gray-900" v-cloak>
+<div class="bg-gray-900 scroll-smooth" v-cloak>
 
     @include('partials.header')
 
-    <main>
+    <main class="snap-y scroll-smooth">
         @include('partials.hero')
 
         @include('partials.features')
@@ -27,9 +27,9 @@
         @include('partials.stats')
 
         @include('partials.cta')
-    </main>
 
-    @include('partials.footer')
+        @include('partials.footer')
+    </main>
 </div>
 
 </body>

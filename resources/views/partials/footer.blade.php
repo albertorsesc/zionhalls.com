@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer aria-labelledby="footer-heading" class="relative">
+<footer aria-labelledby="footer-heading" class="relative snap-center">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="mx-auto max-w-7xl px-6 pb-8 pt-4 lg:px-8">
         <div class="border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
