@@ -30,7 +30,7 @@ class SocialLoginController extends Controller
 
         try {
             $socialUser = Socialite::driver($driver)->user();
-            dd($socialUser);
+
             $fullName = explode(' ', $socialUser->getName());
 
             $socialAccount = SocialAccount::where('client_id', $socialUser->getId())
