@@ -1,5 +1,7 @@
 ## Zion Halls
 
+[![Laravel Forge Site Deployment Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F84e223dc-0071-49e2-a3d8-22b547196a81%3Fdate%3D1%26commit%3D1&style=plastic)](https://forge.laravel.com/servers/747479/sites/2206444)
+
 ![Zion Halls](/public/img/docs/demo.png)
 
 **Zion Halls** is an app with the purpose of providing a place to learn from world influencers that have the mission to 
