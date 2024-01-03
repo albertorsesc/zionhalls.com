@@ -2,13 +2,13 @@
 <div id="features" class="mx-auto mt-32 max-w-7xl px-6 sm:mt-32 lg:px-8">
     <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-base font-semibold leading-7 text-indigo-400">
-            Action speaks louder than words!
+            {{ __('welcome.features.title') }}
         </h2>
         <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Transform the way you learn and grow with content that resonates, educates, and inspires - across languages, across borders.
+            {{ __('welcome.features.description') }}
         </p>
         <p class="mt-6 text-lg leading-8 text-gray-300">
-            Discover the stories, achievements, and wisdom of leading influencers that provide true and much needed value to the world.
+            {{ __('welcome.features.detail') }}
         </p>
     </div>
     <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-20 lg:max-w-none">
@@ -21,11 +21,11 @@
                         </svg>
 
                     </div>
-                    Zion Halls
+                    {{ __('welcome.features.zion_halls.title') }}
                 </dt>
                 <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
                     <p class="flex-auto">
-                        Find the most impactful influencers in your field of interest and learn from their stories, experiences, and wisdom.
+                        {{ __('welcome.features.zion_halls.description') }}
                     </p>
                 </dd>
             </div>
@@ -37,11 +37,11 @@
                         </svg>
 
                     </div>
-                    Find their content in your language
+                    {{ __('welcome.features.content_language.title') }}
                 </dt>
                 <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
                     <p class="flex-auto">
-                        Language should not be a barrier to learning. We just make impactful content available in your language.
+                        {{ __('welcome.features.content_language.description') }}
                     </p>
                 </dd>
             </div>
@@ -53,12 +53,11 @@
                         </svg>
 
                     </div>
-                    Battle Rooms
+                    {{ __('welcome.features.battle_rooms.title') }}
                 </dt>
                 <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
                     <p class="flex-auto">
-                        Join a worldwide network of learners and thinkers, share ideas, and grow together.
-                        Find your tribe and connect with like-minded people.
+                        {{ __('welcome.features.battle_rooms.description') }}
                     </p>
                 </dd>
             </div>
@@ -70,12 +69,11 @@
                         </svg>
 
                     </div>
-                    Connections
+                    {{ __('welcome.features.connections.title') }}
                 </dt>
                 <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
                     <p class="flex-auto">
-                        "You are the sum of the people you spend the most time with." Join a worldwide network of
-                        learners and thinkers, share ideas, and grow together.
+                        {{ __('welcome.features.connections.description') }}
                     </p>
                 </dd>
             </div>
@@ -87,11 +85,11 @@
                         </svg>
 
                     </div>
-                    Everyones&apos; Watching
+                    {{ __('welcome.features.level_up.title') }}
                 </dt>
                 <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
                     <p class="flex-auto">
-                        Earn badges of valor in 'Level Up' for your contributions and courage. Recognized by your peers, each badge honors your efforts to support and uplift the community, fueling a collective ascent to greatness.
+                        {{ __('welcome.features.level_up.description') }}
                     </p>
                 </dd>
             </div>

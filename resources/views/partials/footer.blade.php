@@ -36,7 +36,7 @@
                 </a>
             </div>
             <p class="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">{{ date('Y') }} Zion Halls.</p>
-            <p class="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">Terms & Conditions</p>
+            <p class="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">{{ __('welcome.footer.terms') }}</p>
         </div>
     </div>
 </footer>

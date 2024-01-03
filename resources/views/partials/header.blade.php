@@ -15,12 +15,21 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="/zion-halls" class="text-sm font-semibold leading-6 text-white">Enter the Halls</a>
-            <a href="#features" class="text-sm font-semibold leading-6 text-white">Features of the Halls</a>
+            <a href="/zion-halls" class="text-sm font-semibold leading-6 text-white">
+                {{ __('welcome.header.enter') }}
+            </a>
+            <a href="#features" class="text-sm font-semibold leading-6 text-white">
+                {{ __('welcome.header.features') }}
+            </a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="{{ route('register') }}" class="text-sm font-semibold leading-6 text-white mr-4">Register</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+            <a href="{{ route('register') }}" class="text-sm font-semibold leading-6 text-white mr-4">
+                {{ __('welcome.header.register') }}
+            </a>
+            <a href="#" class="text-sm font-semibold leading-6 text-white">
+                {{ __('welcome.header.login') }}
+                <span aria-hidden="true">&rarr;</span>
+            </a>
         </div>
     </nav>
 

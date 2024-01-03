@@ -26,15 +26,14 @@
                         <span class="pr-12 md:pr-0 lg:pt-4 py-4 lg:py-8 leading-8 lg:leading-8 font-bold text-transparent text-4xl lg:text-7xl bg-clip-text bg-gradient-to-r from-purple-600 to-pink-800">
                             Zion Halls
                         </span>
-                        Discover the Journeys of World Influencers and Their Impactful Communities.
+                        {{ __('welcome.hero.title') }}
                     </h1>
                     <p class="mt-6 text-lg leading-8 text-gray-300">
-                        Whether you're looking to enhance your skills, gain new perspectives,
-                        build a new network, find your determination, or simply get inspired, you've found the right place.
+                        {{ __('welcome.hero.subtitle') }}
                     </p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
                         <a href="/" class="text-sm font-semibold leading-6 text-white">
-                            Enter Zion&apos;s Gates <span aria-hidden="true">→</span>
+                            {{ __('welcome.hero.button') }} <span aria-hidden="true">→</span>
                         </a>
                     </div>
                 </div>

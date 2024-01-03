@@ -16,13 +16,16 @@
     </div>
     <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Explore the most powerful members of Zion Halls.
+            {{ __('welcome.cta.title') }}
         </h2>
         <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-            Welcome to Zion Halls, where the stories and wisdom of the world’s most influential figures are at your fingertips. Discover the paths, achievements, and insights of renowned influencers across diverse fields. Empower your journey with knowledge and inspiration.
+            {{ __('welcome.cta.detail') }}
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="#" class="text-sm font-semibold leading-6 text-white">Enter Zion&apos;s Gates <span aria-hidden="true">→</span></a>
+            <a href="#" class="text-sm font-semibold leading-6 text-white">
+                {{ __('welcome.cta.button') }}
+                <span aria-hidden="true">→</span>
+            </a>
         </div>
     </div>
 </div>
