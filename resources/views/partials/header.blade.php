@@ -23,10 +23,10 @@
             </a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="{{ route('register') }}" class="text-sm font-semibold leading-6 text-white mr-4">
+            <a href="{{ route('register') }}" class="text-sm font-semibold leading-6 text-white mr-4 hidden">
                 {{ __('welcome.header.register') }}
             </a>
-            <a href="#" class="text-sm font-semibold leading-6 text-white">
+            <a href="#" class="text-sm font-semibold leading-6 text-white hidden">
                 {{ __('welcome.header.login') }}
                 <span aria-hidden="true">&rarr;</span>
             </a>
