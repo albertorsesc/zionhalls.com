@@ -19,18 +19,18 @@ class SocialLoginController extends Controller
                 ->with('error', 'Invalid login service.');
         }*/
 
-        return Socialite::driver('twitter')->redirect();
+        return Socialite::driver($driver)->redirect();
     }
 
-    public function handleProviderCallback(Request $request, $driver)
+    public function handleProviderCallback(Request $request, $driver = 'twitter')
     {
         if ($request->get('error')) {
             return redirect('login');
         }
 
         try {
-            dd('$socialUser');
             $socialUser = Socialite::driver($driver)->user();
+            dd($socialUser);
             $fullName = explode(' ', $socialUser->getName());
 
             $socialAccount = SocialAccount::where('client_id', $socialUser->getId())
