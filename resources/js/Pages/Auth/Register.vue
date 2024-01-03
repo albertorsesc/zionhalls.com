@@ -1,13 +1,13 @@
 <script setup>
-import {Head, Link, router, useForm} from '@inertiajs/vue3';
+import {Head, router, useForm} from '@inertiajs/vue3';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import SecondaryButton from "@/Components/SecondaryButton.vue";
+import SecondaryLink from "@/Components/SecondaryLink.vue";
 
 const form = useForm({
     name: '',
@@ -18,7 +18,6 @@ const form = useForm({
 });
 
 const submit = () => {
-    router.get(route('social-login.redirect'))
     /*form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });*/
@@ -35,13 +34,15 @@ const submit = () => {
             </h2>
         </template>
 
-        <form @submit.prevent class="text-center">
-            <SecondaryButton @click="submit" class="w-full flex justify-center">
+        <div class="text-center">
+            <a :href="route('social-login.redirect')"
+               class="w-full flex justify-center items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150"
+            >
                 Sign Up using
                 <span class="rounded-full bg-gray-500 h-8 w-8 ml-2">
                     <svg class="h-full w-full" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
                 </span>
-            </SecondaryButton>
+            </a>
 <!--            <div>
                 <InputLabel for="name" value="Name" />
                 <TextInput
@@ -117,6 +118,6 @@ const submit = () => {
                     Register
                 </PrimaryButton>
             </div>-->
-        </form>
+        </div>
     </AuthenticationCard>
 </template>
