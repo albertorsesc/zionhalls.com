@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import {Head, Link, router, useForm} from '@inertiajs/vue3';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
 import Checkbox from '@/Components/Checkbox.vue';
@@ -7,6 +7,7 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import SecondaryButton from "@/Components/SecondaryButton.vue";
 
 const form = useForm({
     name: '',
@@ -17,9 +18,10 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('register'), {
+    router.get(route('social-login.redirect'))
+    /*form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
-    });
+    });*/
 };
 </script>
 
@@ -28,11 +30,19 @@ const submit = () => {
 
     <AuthenticationCard>
         <template #logo>
-            <AuthenticationCardLogo />
+            <h2 class="pr-12 md:pr-0 lg:pt-4 py-4 lg:py-8 leading-8 lg:leading-8 font-bold text-transparent text-4xl lg:text-7xl bg-clip-text bg-gradient-to-r from-purple-600 to-pink-800">
+                Zion Halls
+            </h2>
         </template>
 
-        <form @submit.prevent="submit">
-            <div>
+        <form @submit.prevent class="text-center">
+            <SecondaryButton @click="submit" class="w-full flex justify-center">
+                Sign Up using
+                <span class="rounded-full bg-gray-500 h-8 w-8 ml-2">
+                    <svg class="h-full w-full" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
+                </span>
+            </SecondaryButton>
+<!--            <div>
                 <InputLabel for="name" value="Name" />
                 <TextInput
                     id="name"
@@ -106,7 +116,7 @@ const submit = () => {
                 <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Register
                 </PrimaryButton>
-            </div>
+            </div>-->
         </form>
     </AuthenticationCard>
 </template>

@@ -1,8 +1,21 @@
 <?php
 
-use Illuminate\Foundation\Application;
+    use App\Http\Controllers\Auth\SocialLoginController;
+    use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+Route::get('/auth/login/redirect', [
+    SocialLoginController::class,
+    'redirectToProvider'
+])->name('social-login.redirect');
+
+Route::get('/auth/login/callback', [
+    SocialLoginController::class,
+    'handleProviderCallback'
+])->name('social-login.callback');
+
+
 
 Route::view('/', 'welcome')->name('welcome');
 

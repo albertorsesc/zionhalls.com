@@ -1,13 +1,31 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import {Head, Link, router} from '@inertiajs/vue3';
 import GuestLayout from "@/Layouts/GuestLayout.vue";
+import TextInput from "@/Components/TextInput.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+import SecondaryButton from "@/Components/SecondaryButton.vue";
+import {reactive} from "vue";
 
 defineProps({
     canLogin: Boolean,
     canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
 });
+
+const state = reactive({
+    form: {
+        handle: ''
+    }
+});
+
+const submitHandle = () => {
+    router.post(route('influencers.store'), {
+        handle: state.form.handle
+    }, {
+        onSuccess: () => {
+            state.form.handle = '';
+        }
+    });
+}
 </script>
 
 <template>
@@ -15,6 +33,11 @@ defineProps({
 
         <div class=" sm:flex sm:justify-center sm:items-center">
             <div class="max-w-6xl mx-auto p-6">
+                <div class="flex mx-12 items-center">
+                    <TextInput class="w-2/3 mr-8" placeholder="Submit an Influencer by it's X (twitter) handle" disabled/>
+                    <a href="/login" class="underline text-indigo-500">You need to be a member</a>
+                </div>
+
                 <div class="mt-8 lg:mt-20">
                     <ul role="list" class="grid grid-cols-1 mx-12 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-12">
                         <li class="relative">
