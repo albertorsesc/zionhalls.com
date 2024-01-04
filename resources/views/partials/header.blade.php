@@ -15,7 +15,7 @@
             </button>
         </div>
         <div class="flex lg:gap-x-12 mx-auto">
-            <a href="/zion-halls" class="text-sm font-semibold leading-6 text-white hidden">
+            <a href="/zion-halls" class="text-sm font-semibold leading-6 text-white">
                 {{ __('welcome.header.enter') }}
             </a>
             <a href="#features" class="text-sm font-semibold leading-6 text-white">

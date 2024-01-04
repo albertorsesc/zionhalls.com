@@ -1,7 +1,7 @@
 <?php
 
-    use App\Http\Controllers\Auth\SocialLoginController;
-    use Illuminate\Foundation\Application;
+use App\Http\Controllers\Auth\SocialLoginController;
+use App\Models\Influencers\Influencer;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -20,7 +20,9 @@ Route::get('/auth/login/callback', [
 Route::view('/', 'welcome')->name('welcome');
 
 Route::get('/zion-halls', function () {
-    return Inertia::render('Hall');
+    return Inertia::render('Hall', [
+        'influencers' => Influencer::all()
+    ]);
 })->name('hall');
 
 Route::get('/profile', function () {

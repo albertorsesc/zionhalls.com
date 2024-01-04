@@ -1,17 +1,22 @@
-<script setup>
-import {Head, Link, router} from '@inertiajs/vue3';
+<script setup lang="ts">
+import {Link, router} from '@inertiajs/vue3';
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import TextInput from "@/Components/TextInput.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import SecondaryButton from "@/Components/SecondaryButton.vue";
 import {reactive} from "vue";
 
-defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-});
+interface Props {
+    influencers: Influencer[];
+}
 
-const state = reactive({
+interface State {
+    form: {
+        handle: string;
+    }
+}
+
+const props = defineProps<Props>();
+
+const state = reactive<State>({
     form: {
         handle: ''
     }
@@ -40,27 +45,17 @@ const submitHandle = () => {
 
                 <div class="mt-8 lg:mt-20">
                     <ul role="list" class="grid grid-cols-1 mx-12 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-12">
-                        <li class="relative">
+                        <li v-for="influencer in influencers" :key="influencer.id" class="relative">
                             <Link :href="route('influencers.show')">
                                 <div class="group block w-full overflow-hidden cursor-pointer rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-                                    <img src="https://pbs.twimg.com/profile_images/1728837013023895552/nCHrdjlh_400x400.jpg"
-                                         alt=""
+                                    <img :src="influencer.profile_image"
+                                         :alt="`${influencer.name}'s profile image`"
                                          class="pointer-events-none object-cover group-hover:opacity-75 hover:cursor-pointer">
                                 </div>
                                 <p class="flex text-xl font-semibold leading-loose text-gray-500">
-                                    Andrew Tate
+                                    {{ influencer.name }}
                                 </p>
                             </Link>
-                        </li>
-                        <li class="relative">
-                            <div class="group block w-full overflow-hidden cursor-pointer rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-                                <img src="https://pbs.twimg.com/profile_images/1540561709211033602/e3wWYJsp_400x400.jpg"
-                                     alt=""
-                                     class="pointer-events-none object-cover group-hover:opacity-75 hover:cursor-pointer">
-                            </div>
-                            <p class="flex text-xl font-semibold leading-loose text-gray-500">
-                                Luke Belmar
-                            </p>
                         </li>
                     </ul>
                 </div>

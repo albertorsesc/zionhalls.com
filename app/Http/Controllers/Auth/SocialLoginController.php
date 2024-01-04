@@ -67,9 +67,7 @@ class SocialLoginController extends Controller
             auth()->login($socialAccount->user, true);
 
             return redirect('dashboard');
-
-        } catch (\Exception $exception) {
-            dd($exception->getMessage());
+        } catch (\Exception) {
             return redirect('login')->with('error', 'Something went wrong. Please try again.');
         }
     }
@@ -84,7 +82,8 @@ class SocialLoginController extends Controller
 
         if (! $auth->password) {
             $redirectTo = 'forgot-password';
-            $message = 'Tu cuenta de ' . ucwords($driver) . ' ha sido desvinculada. Por favor, cree una contraseña para iniciar sesión.';
+            $message = 'Tu cuenta de ' . ucwords($driver) .
+                ' ha sido desvinculada. Por favor, cree una contraseña para iniciar sesión.';
         } else {
             $redirectTo = 'inicio';
             $message = 'Tu cuenta de ' . ucwords($driver) . ' ha sido desvinculada.';
