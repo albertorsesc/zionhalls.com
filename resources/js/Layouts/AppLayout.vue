@@ -42,7 +42,9 @@ const logout = () => {
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
-                                    <ApplicationMark class="block h-9 w-auto" />
+                                    <span class="pr-12 md:pr-0 lg:pt-4 py-4 lg:py-8 leading-8 lg:leading-8 font-bold text-transparent text-sm lg:text-2xl bg-clip-text bg-gradient-to-r from-purple-600 to-pink-800">
+                                        Zion Halls
+                                    </span>
                                 </Link>
                             </div>
 
@@ -56,8 +58,8 @@ const logout = () => {
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
                             <div class="ms-3 relative">
-                                <!-- Teams Dropdown -->
-                                <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
+                                <!-- Teams Dropdown $page.props.jetstream.hasTeamFeatures-->
+                                <Dropdown v-if="false" align="right" width="60">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
                                             <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50 dark:active:bg-gray-700 transition ease-in-out duration-150">
