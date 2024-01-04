@@ -32,10 +32,10 @@ return [
     ],
 
     'twitter' => [
-        'client_id' => env('X_CLIENT_ID'),
-        'client_secret' => env('X_CLIENT_SECRET'),
+        'client_id' => env('X_API_KEY'),
+        'client_secret' => env('X_API_SECRET'),
         'redirect' => '/auth/login/callback',
-        'oauth' => 2,
+//        'oauth' => 2,
     ],
 
     'login_services' => [

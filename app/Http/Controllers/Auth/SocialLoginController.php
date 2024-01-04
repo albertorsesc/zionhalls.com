@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\SocialAccount;
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -30,20 +31,20 @@ class SocialLoginController extends Controller
 
         try {
             $socialUser = Socialite::driver($driver)->user();
+            $socialAccount = SocialAccount::where('client_id', $socialUser->getId())->where('driver', $driver);
 
-            $fullName = explode(' ', $socialUser->getName());
-
-            $socialAccount = SocialAccount::where('client_id', $socialUser->getId())
-                                          ->where('name', $driver)
-                                          ->first();
+            if ($socialAccount->count() > 1) {
+                $socialAccount = $socialAccount->latest()->first();
+            } else {
+                $socialAccount = $socialAccount->first();
+            }
 
             if (! $socialAccount) {
                 $user = User::query()->where('email', $socialUser->getEmail())->first();
 
                 if (! $user) {
                     $user = User::create([
-                        'first_name' => $fullName[0],
-                        'last_name' => $fullName[1] ?? '-',
+                        'name' => $socialUser->getName(),
                         'email' => $socialUser->getEmail(),
                         'email_verified_at' => now()->toDateTimeString(),
                         'profile_photo_path' => $socialUser->getAvatar()
@@ -55,6 +56,12 @@ class SocialLoginController extends Controller
                     'client_id' => $socialUser->getId(),
                     'avatar' => $socialUser->getAvatar(),
                 ]);
+
+                $user->ownedTeams()->save(Team::forceCreate([
+                    'user_id' => $user->id,
+                    'name' => explode(' ', $user->name, 2)[0]."'s Team",
+                    'personal_team' => true,
+                ]));
             }
 
             auth()->login($socialAccount->user, true);
@@ -62,6 +69,7 @@ class SocialLoginController extends Controller
             return redirect('dashboard');
 
         } catch (\Exception $exception) {
+            dd($exception->getMessage());
             return redirect('login')->with('error', 'Something went wrong. Please try again.');
         }
     }
