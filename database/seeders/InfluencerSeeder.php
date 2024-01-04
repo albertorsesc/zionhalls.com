@@ -22,10 +22,18 @@ class InfluencerSeeder extends Seeder
                     'mindset',
                 ],*/
                 'name' => 'Andrew Tate',
-                'known_as' => 'Cobratate',
-                'bio' => 'Top G',
+                'known_as' => 'TopG/Cobratate',
+                'x_handle' => '@Cobratate',
+                'quote' => '“My Unmatched Perspicacity Coupled With My Sheer Indefatigability Makes Me a Feared
+                Opponent in Any Realm of Human Endeavor”',
+                'bio' => "Andrew Tate, a four-time kickboxing world champion, has carved a remarkable path as an
+                entrepreneur. He's taken his fighting spirit from the ring to the business world, crafting an empire
+                that spans digital media to real estate. His journey is a testament to transforming hard work and
+                resilience into success. Known for his emphasis on fitness and mental acuity, Tate is a source of
+                real-world wisdom on thriving against the odds. His dynamic approach to life inspires many to ignite
+                their inner fire and hustle towards their dreams.",
                 'profile_image' => 'https://pbs.twimg.com/profile_images/1728837013023895552/nCHrdjlh_400x400.jpg',
-                'banner_image' => 'https://pbs.twimg.com/profile_images/1540561709211033602/e3wWYJsp_400x400.jpg',
+                'banner_image' => 'https://pbs.twimg.com/profile_banners/333357345/1701021840/1500x500',
                 'country_location' => 'Romania',
                 'country_origin' => 'US',
                 'country_raised' => 'UK',
@@ -34,13 +42,16 @@ class InfluencerSeeder extends Seeder
             [
                 'name' => 'Luke Belmar',
                 'known_as' => 'Luke Belmar',
+                'x_handle' => '@lukebelmar',
+                'quote' => '“Broke is a condition of the mind not the pocket.
+                 Fix your mind the rest will take care of itself.”',
                 'bio' => 'Belmar runs a collective called the Capital Club, which he aims to transform into the largest
                 decentralized entrepreneurial network that focuses on building, multiplying, and preserving wealth.
                 He is also involved in private equity. His estimated net worth is $10 million, although the exact
                 figure is not known. He made his fortune from digital advertising, e-commerce, drop shipping, and
                 investing in crypto and NFTs.',
                 'profile_image' => 'https://pbs.twimg.com/profile_images/1540561709211033602/e3wWYJsp_400x400.jpg',
-                'banner_image' => '',
+                'banner_image' => 'https://www.capital.club/assets/img/nav-logo.svg',
                 'country_location' => 'US',
                 'country_origin' => 'AR',
                 'country_raised' => 'AR',

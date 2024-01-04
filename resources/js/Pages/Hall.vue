@@ -46,7 +46,7 @@ const submitHandle = () => {
                 <div class="mt-8 lg:mt-20">
                     <ul role="list" class="grid grid-cols-1 mx-12 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-12">
                         <li v-for="influencer in influencers" :key="influencer.id" class="relative">
-                            <Link :href="route('influencers.show')">
+                            <Link :href="route('influencers.show', influencer)">
                                 <div class="group block w-full overflow-hidden cursor-pointer rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                                     <img :src="influencer.profile_image"
                                          :alt="`${influencer.name}'s profile image`"

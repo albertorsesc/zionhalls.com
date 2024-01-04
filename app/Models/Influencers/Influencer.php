@@ -12,7 +12,9 @@ class Influencer extends Model
     protected $fillable = [
         'name',
         'known_as',
+        'x_handle',
         'bio',
+        'quote',
         'profile_image',
         'banner_image',
         'country_location',

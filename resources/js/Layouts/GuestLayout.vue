@@ -24,12 +24,26 @@ const showingNavigationDropdown = ref(false);
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <a href="/">Zion Halls</a>
+                            <a :href="route('hall')">Zion Halls</a>
                         </div>
                         <div class="hidden sm:ml-6 sm:block">
                             <div class="flex space-x-4">
-                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Home</a>
+                                <a :href="route('welcome')"
+                                   :class="[
+                                       route().current('welcome') ?
+                                        'bg-gray-900 text-white' :
+                                        'text-gray-300 hover:bg-gray-700 hover:text-white'
+                                   ]"
+                                   class="rounded-md px-3 py-2 text-sm font-medium"
+                                >Home</a>
+                                <a :href="route('hall')"
+                                   :class="[
+                                       route().current('hall') ?
+                                        'bg-gray-900 text-white' :
+                                        'text-gray-300 hover:bg-gray-700 hover:text-white'
+                                   ]"
+                                   class="rounded-md px-3 py-2 text-sm font-medium"
+                                >Zion Halls</a>
                             </div>
                         </div>
                     </div>

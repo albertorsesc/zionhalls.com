@@ -19,6 +19,7 @@
         "resources/js/**/*.ts",
         "resources/js/**/*.vue",
         "resources/js/**/*.d.ts",
+        "resources/js/**/*.class.ts",
         "resources/js/**/*.func.ts",
         "resources/js/**/*.enum.ts",
         "resources/js/**/*.store.ts",

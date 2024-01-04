@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('known_as')->nullable();
+            $table->string('x_handle')->unique();
+            $table->string('official_website')->nullable();
             $table->text('bio')->nullable();
+            $table->text('quote')->nullable();
             $table->string('profile_image');
             $table->string('banner_image');
             $table->string('country_location'); // 2-letter country code

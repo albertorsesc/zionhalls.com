@@ -43,6 +43,9 @@ export type PageProps = {
         team: Team;
         role: string;
     },
+    ziggy: {
+        previous: string;
+    };
     flash: {
         message: string;
     },
