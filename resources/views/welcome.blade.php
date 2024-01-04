@@ -12,6 +12,18 @@
 
     <!-- Scripts -->
     @vite(['resources/js/app.ts', 'resources/css/app.css'])
+
+    @production
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EM7DHR3SF"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-6EM7DHR3SF');
+        </script>
+    @endproduction
 </head>
 <body class="font-sans antialiased">
 
