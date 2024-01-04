@@ -50,7 +50,7 @@ const showingNavigationDropdown = ref(false);
                     <div class="hidden sm:ml-6 sm:block">
                         <div class="flex items-center">
                             <div class="relative ml-3">
-                                <div v-if="! $page.props.auth.user.id">
+                                <div v-if="! $page.props.auth.user?.id">
                                     <a href="/register" class="rounded-md px-3 py-2 text-sm font-medium text-white">Register</a>
                                     <a href="/login" class="rounded-md px-3 py-2 text-sm font-medium text-white">Log in</a>
                                 </div>
