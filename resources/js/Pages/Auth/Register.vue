@@ -17,9 +17,9 @@ const form = useForm({
 });
 
 const submit = () => {
-    /*form.post(route('register'), {
+    form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
-    });*/
+    });
 };
 </script>
 
@@ -48,7 +48,7 @@ const submit = () => {
             </span>
         </div>
 
-        <form class="mt-4">
+        <form @submit.prevent="submit" class="mt-4">
             <div>
                 <InputLabel for="name" value="Name" />
                 <TextInput
