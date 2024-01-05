@@ -2,11 +2,26 @@
 
 namespace Tests;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
+
+    public function signIn(array $attributes = [], $user = null, string $driver = null) : TestCase
+    {
+        $user ??= $this->create(User::class, $attributes);
+
+        return $this->actingAs($user, $driver);
+    }
+
+    public function signInAsRoot() : TestCase
+    {
+        return $this->signIn([
+            'email' => config('auth.roles.root')[0]
+        ]);
+    }
 
     /**
      * Factory wrapper.

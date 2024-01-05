@@ -30,6 +30,7 @@ export type PageProps = {
     auth: {
         user: {
             id: number;
+            is_root: boolean;
             name: string;
             email: string;
             current_team_id?: number;

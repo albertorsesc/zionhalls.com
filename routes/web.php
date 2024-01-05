@@ -19,13 +19,11 @@ Route::get('/auth/login/callback', [
 Route::view('/', 'welcome')->name('welcome');
 
 Route::get('/zion-halls', function () {
-    return Inertia::render('Hall', ['influencers' => Influencer::all()]);
+    return Inertia::render('Hall', [
+        'influencers' => Influencer::query()->orderBy('name')->get()
+    ]);
 })->name('hall');
 
-Route::get('/influencers/{influencer:x_handle}', [
-    InfluencerController::class,
-    'show'
-])->name('influencers.show');
 
 Route::middleware([
     'auth:sanctum',
@@ -34,7 +32,27 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard', [
-            'influencers' => Influencer::all(),
+            'influencers' => Influencer::query()->orderBy('name')->get()
         ]);
     })->name('dashboard');
+
+    Route::get('/influencers', [
+        InfluencerController::class,
+        'index'
+    ])->name('influencers.index');
+
+    Route::get('/influencers/create', [
+        InfluencerController::class,
+        'create'
+    ])->name('influencers.create');
+
+    Route::post('/influencers', [
+        InfluencerController::class,
+        'store'
+    ])->name('influencers.store');
 });
+
+Route::get('/influencers/{influencer:x_handle}', [
+    InfluencerController::class,
+    'show'
+])->name('influencers.show');

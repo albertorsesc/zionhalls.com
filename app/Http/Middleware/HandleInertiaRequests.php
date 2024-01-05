@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
@@ -37,7 +38,17 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        return array_merge(parent::share($request), [
+        $sharedData = parent::share($request);
+
+        if ($request->user()) {
+            $sharedData['auth'] = $this->getAuthUser($request->user());
+        }
+
+        if ($request->session()->has('flash')) {
+            $sharedData['flash'] = $request->session()->get('flash');
+        }
+
+        return array_merge($sharedData, [
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
                     'location' => $request->url(),
@@ -45,5 +56,23 @@ class HandleInertiaRequests extends Middleware
                 ]);
             },
         ]);
+    }
+
+    public function getAuthUser(User $user) : array
+    {
+        return [
+            'user' => [
+                'id' => $user->id,
+                'is_root' => in_array($user->email, config('auth.roles.root')),
+                'name' => $user->name,
+                'email' => $user->email,
+                'current_team_id' => $user->current_team_id,
+                'current_team' => $user->currentTeam,
+                'all_teams' => $user->teams,
+                'profile_photo_path' => $user->profile_photo_path,
+                'profile_photo_url' => $user->profilePhotoUrl(),
+                'created_at' => $user->created_at,
+            ],
+        ];
     }
 }

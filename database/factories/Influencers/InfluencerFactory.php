@@ -3,6 +3,7 @@
 namespace Database\Factories\Influencers;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Influencers\Influencer>
@@ -16,10 +17,12 @@ class InfluencerFactory extends Factory
      */
     public function definition(): array
     {
+        $name = $this->faker->name;
         return [
             'name' => $this->faker->name,
-            'known_as' => $this->faker->name,
-            'x_handle' => '@' . $this->faker->name,
+            'known_as' => $name,
+            'x_handle' => '@' . Str::camel($name),
+            'official_website' => $this->faker->url,
             'bio' => $this->faker->text,
             'quote' => $this->faker->text,
             'profile_image' => $this->faker->imageUrl(),

@@ -64,4 +64,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(SocialAccount::class);
     }
+
+    /*
+     * Helpers
+     */
+
+    public function isRoot(): bool
+    {
+        return in_array($this->email, config('auth.roles.root'));
+    }
 }

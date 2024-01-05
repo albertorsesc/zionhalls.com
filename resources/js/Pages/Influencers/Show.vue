@@ -130,7 +130,7 @@ const changeTab = (tab: 'profile' | 'content' | 'achievements') => {
                             </dd>
                         </div>
 
-                        <div class="sm:col-span-1">
+                        <div v-if="props.influencer.known_as" class="sm:col-span-1">
                             <dt class="text-sm font-medium text-gray-500">Known as</dt>
                             <dd class="mt-1 text-sm text-gray-300">{{ props.influencer.known_as }}</dd>
                         </div>
