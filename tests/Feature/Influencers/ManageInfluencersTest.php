@@ -48,7 +48,6 @@ class ManageInfluencersTest extends TestCase
      */
     public function root_user_can_store_a_new_influencer()
     {
-        $this->withoutExceptionHandling();
         $this->signInAsRoot();
 
         $newInfluencer = $this->make(Influencer::class);

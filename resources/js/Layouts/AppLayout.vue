@@ -79,9 +79,12 @@ const logout = () => {
                                                 Manage Zion
                                             </div>
 
-                                            <!-- Team Settings -->
                                             <DropdownLink :href="route('influencers.index')">
                                                 Influencers
+                                            </DropdownLink>
+
+                                            <DropdownLink :href="route('influencers.suggestions.index')">
+                                                Influencer Suggestions
                                             </DropdownLink>
 
                                             <!-- Team Switcher -->
@@ -285,8 +288,8 @@ const logout = () => {
                                 </ResponsiveNavLink>
                             </form>
 
-                            <!-- Team Management -->
-                            <template v-if="$page.props.jetstream.hasTeamFeatures">
+                            <!-- Team Management: $page.props.jetstream.hasTeamFeatures -->
+                            <template v-if="false">
                                 <div class="border-t border-gray-200 dark:border-gray-600" />
 
                                 <div class="block px-4 py-2 text-xs text-gray-400">

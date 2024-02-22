@@ -4,6 +4,8 @@ import GuestLayout from "@/Layouts/GuestLayout.vue";
 import TextInput from "@/Components/TextInput.vue";
 import {reactive} from "vue";
 import InfluencerCard from "@/Components/Influencers/InfluencerCard.vue";
+import Banner from "@/Components/Banner.vue";
+import SecondaryLink from "@/Components/SecondaryLink.vue";
 
 interface Props {
     influencers: Influencer[];
@@ -36,14 +38,11 @@ const submitHandle = () => {
 
 <template>
     <GuestLayout title="Zion Halls">
-
-        <div class=" sm:flex sm:justify-center sm:items-center">
+        <div class="sm:flex sm:justify-center sm:items-center">
             <div class="max-w-6xl mx-auto p-6">
-                <div class="flex mx-12 items-center hidden">
-                    <TextInput class="w-2/3 mr-8" placeholder="Submit an Influencer by it's X (twitter) handle" disabled/>
-                    <a href="/login" class="underline text-indigo-500">You need to be a member</a>
+                <div class="flex justify-end items-center">
+                    <SecondaryLink :href="route('influencers.suggestions.create')">Submit an Influencer</SecondaryLink>
                 </div>
-
                 <div class="mt-8 lg:mt-20">
                     <ul role="list" class="grid grid-cols-1 mx-12 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-12">
                         <li v-for="influencer in influencers" :key="influencer.id" class="relative">

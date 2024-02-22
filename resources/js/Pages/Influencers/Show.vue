@@ -114,7 +114,7 @@ const changeTab = (tab: 'profile' | 'content' | 'achievements') => {
                 <!-- Description list -->
                 <div v-if="state.tabs === 'profile'" class="mx-auto mt-6 max-w-5xl px-4 sm:px-6 lg:px-8">
                     <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3">
-                        <div class="sm:col-span-3">
+                        <div v-if="props.influencer.quote" class="sm:col-span-3">
                             <dt class="text-sm font-medium text-gray-500">Quote</dt>
                             <dd class="mt-2 max-w-prose space-y-5 text-base text-gray-400 mr-20">
                                 {{ props.influencer.quote }}

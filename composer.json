@@ -58,7 +58,7 @@
         ],
         "phpcs": ["phpcs"],
         "phpstan": ["phpstan"],
-        "parallel-test": ["@php artisan test --parallel"],
+        "parallel": ["@php artisan test --parallel"],
         "restore": [
             "@composer install",
             "@composer update",
@@ -68,7 +68,7 @@
             "rm -rf storage/app/public"
         ],
         "tests": [
-            "@php artisan test",
+            "@parallel",
             "phpstan",
             "npm run ts-check",
             "phpcs"
