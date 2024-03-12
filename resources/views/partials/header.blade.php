@@ -22,15 +22,23 @@
                 {{ __('welcome.header.features') }}
             </a>
         </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="{{ route('register') }}" class="text-sm font-semibold leading-6 text-white mr-4">
-                {{ __('welcome.header.register') }}
-            </a>
-            <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-white">
-                {{ __('welcome.header.login') }}
-                <span aria-hidden="true">&rarr;</span>
-            </a>
-        </div>
+        @if(! auth()->check())
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <a href="{{ route('register') }}" class="text-sm font-semibold leading-6 text-white mr-4">
+                    {{ __('welcome.header.register') }}
+                </a>
+                <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-white">
+                    {{ __('welcome.header.login') }}
+                    <span aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        @else
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <a href="{{ route('dashboard') }}" class="text-sm font-semibold leading-6 text-white">
+                    Dashboard
+                </a>
+            </div>
+        @endif
     </nav>
 
     <!-- Mobile menu, show/hide based on menu open state. -->

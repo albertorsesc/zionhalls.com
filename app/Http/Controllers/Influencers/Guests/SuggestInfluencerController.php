@@ -31,6 +31,6 @@ class SuggestInfluencerController extends Controller
     {
         InfluencerSuggestion::create($request->validated());
 
-        return to_route('hall')->with('flash', 'Your Suggestion has been submitted. Thank you!');
+        return to_route('hall')->with('flash', 'Your suggestion has been submitted for review. Thank you!');
     }
 }

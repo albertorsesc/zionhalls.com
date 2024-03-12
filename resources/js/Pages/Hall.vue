@@ -1,39 +1,29 @@
 <script setup lang="ts">
-import {Link, router} from '@inertiajs/vue3';
 import GuestLayout from "@/Layouts/GuestLayout.vue";
-import TextInput from "@/Components/TextInput.vue";
-import {reactive} from "vue";
 import InfluencerCard from "@/Components/Influencers/InfluencerCard.vue";
-import Banner from "@/Components/Banner.vue";
 import SecondaryLink from "@/Components/SecondaryLink.vue";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
+import {onMounted} from "vue";
+import {usePage} from "@inertiajs/vue3";
 
 interface Props {
     influencers: Influencer[];
 }
 
-interface State {
-    form: {
-        handle: string;
-    }
-}
-
 const props = defineProps<Props>();
 
-const state = reactive<State>({
-    form: {
-        handle: ''
+onMounted(() => {
+    const flash = usePage().props.jetstream.flash;
+    if (flash !== '' && flash.length > 0) {
+        toast(usePage().props.jetstream.flash, {
+            theme: 'dark',
+            type: 'success',
+            position: 'bottom-center',
+            transition: 'flip'
+        });
     }
 });
-
-const submitHandle = () => {
-    router.post(route('influencers.store'), {
-        handle: state.form.handle
-    }, {
-        onSuccess: () => {
-            state.form.handle = '';
-        }
-    });
-}
 </script>
 
 <template>

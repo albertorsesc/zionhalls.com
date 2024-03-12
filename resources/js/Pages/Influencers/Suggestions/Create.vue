@@ -2,10 +2,9 @@
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import TextInput from "@/Components/TextInput.vue";
-import {router} from "@inertiajs/vue3";
+import {router, Link} from "@inertiajs/vue3";
 import {reactive} from "vue";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
-import {PageProps} from "@/types/inertia";
 import InputError from "@/Components/InputError.vue";
 
 interface ReactiveState {
@@ -53,7 +52,10 @@ const store = () => {
                             <h2 class="text-base font-semibold leading-7 text-white">
                                 Influencer Information
                             </h2>
-                            <p class="mt-1 text-sm leading-6 text-gray-400">
+                            <p class="mt-1 text-base leading-6 text-gray-300 border border-gray-500 rounded-xl px-3 py-2">
+                                If you would like to be credited for this submission, please register for an account and submit your Influencer.
+                            </p>
+                            <p class="mt-3 text-sm leading-6 text-gray-400">
                                 This information will be displayed publicly so be careful what you share. <br>
                                 Let&apos;s please try to keep it professional and as accurate as possible.
                             </p>
@@ -237,7 +239,7 @@ const store = () => {
                     </div>
 
                     <div class="mt-6 flex items-center justify-end gap-x-6">
-                        <button type="button" class="text-sm font-semibold leading-6 text-white">Cancel</button>
+                        <Link :href="route('hall')" class="text-sm font-semibold leading-6 text-white">Cancel</Link>
                         <SecondaryButton type="submit">Suggest</SecondaryButton>
                     </div>
                 </form>
